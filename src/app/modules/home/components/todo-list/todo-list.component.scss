@@ -52,6 +52,11 @@ section{
                 width: 5%;
                 background: none;
                 border: none;
+
+                i{
+                    font-size: 1.15rem;
+                    color: $danger-color;
+                }
             }
 
         }
