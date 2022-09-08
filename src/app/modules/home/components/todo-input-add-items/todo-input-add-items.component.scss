@@ -1,0 +1,30 @@
+@import '../../../../../dist/scss/variaves.scss';
+
+// :host diz sobre o componente que contém essas especificações dentro 
+//  Nesse caso - <app-todo-input-add-items></app-todo-input-add-items>
+// Ele terá essas especificações e quem está dentro dele as próximas
+:host{
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+
+    input{
+        width: 80%;
+
+        border: none;
+        background-color: $tertiary-background-color;
+
+        font-size: 16px;
+        color: $secondary-text-color;
+        text-align: center;
+
+        padding: 10px;
+        box-sizing: border-box;
+
+        &::placeholder{
+            color: $secondary-text-color;
+        }
+
+    }
+
+}
