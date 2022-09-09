@@ -15,7 +15,7 @@
 </section>
 
 <!-- Componentes encaixados aqui pois eles fazem parte da lista central -->
-<app-todo-input-add-items></app-todo-input-add-items>
+<app-todo-input-add-items (emmitItemTaskList)="setItemList($event)"></app-todo-input-add-items>
 
 <!-- Só aparece o botão se a lista não estiver vazia -->
 <app-todo-button-delete-all *ngIf="taskList.length" (click)="deleteAll()"></app-todo-button-delete-all>
