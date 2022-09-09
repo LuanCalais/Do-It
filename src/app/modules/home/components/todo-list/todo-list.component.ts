@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskList } from '../../model/task-list';
 
 @Component({
   selector: 'app-todo-list',
@@ -6,6 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+
+  public taskList: Array<TaskList> = [
+    {
+      task: 'estudar',
+      checked: true
+    },
+    {
+      task: 'dormir',
+      checked: false
+    },
+    {
+      task: 'comer',
+      checked: true
+    },
+    {
+      task: 'exercitar',
+      checked: false
+    }
+  ]
 
   constructor() { }
 
