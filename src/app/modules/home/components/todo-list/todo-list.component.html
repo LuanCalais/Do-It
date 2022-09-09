@@ -4,11 +4,11 @@
     <ul *ngIf="taskList.length">
         <li *ngFor="let item of taskList; let i = index">
             <input type="checkbox" [(ngModel)]="item.checked">
-            <input type="text" [(ngModel)]="item.task">
+            <input type="text" (keyup)="validaInput(item.task, i)" [(ngModel)]="item.task" [ngClass]="{'checked': item.checked}">
             <button (click)="deleteItemTaskList(i)">
                 <i class='bx bxs-trash bx-tada-hover'></i>
             </button>
-            
+
         </li>
     </ul>
 
