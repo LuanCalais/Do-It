@@ -8,7 +8,9 @@ import { TaskList } from '../../model/task-list';
 })
 export class TodoListComponent implements DoCheck {
 
-  public taskList: Array<TaskList> = []
+  // Verifica a existência de informações no localStorage na hora de setar
+  // Se houver algum erro ele retorna uma lista vazia
+  public taskList: Array<TaskList> = JSON.parse(localStorage.getItem("list") || '[]')
 
   public deleteItemTaskList(event: number): void {
     this.taskList.splice(event, 1)
@@ -26,8 +28,9 @@ export class TodoListComponent implements DoCheck {
   constructor() { }
 
   ngDoCheck(): void {
-    // Ordena, convertemos o checked em number para fazer uma ordenação a partir dos checados e não checados
-    this.taskList.sort((first, last) => Number(first.checked) - Number(last.checked))
+
+    // Evento disparado a cada alteração
+    this.setLocalStorage()
   }
 
   setItemList(e: string): void {
@@ -44,5 +47,15 @@ export class TodoListComponent implements DoCheck {
     }
 
   } 
+
+  public setLocalStorage():void{
+    
+    if(this.taskList){
+      // Ordena, convertemos o checked em number para fazer uma ordenação a partir dos checados e não checados
+      this.taskList.sort((first, last) => Number(first.checked) - Number(last.checked))
+      // Atualiza no banco local do navegador
+      localStorage.setItem("list", JSON.stringify(this.taskList))
+    }
+  }
 
 }
