@@ -5,7 +5,7 @@
         <li *ngFor="let item of taskList; let i = index">
             <input type="checkbox" [(ngModel)]="item.checked">
             <input type="text" [(ngModel)]="item.task">
-            <button>
+            <button (click)="deleteItemTaskList(i)">
                 <i class='bx bxs-trash bx-tada-hover'></i>
             </button>
             
@@ -18,4 +18,4 @@
 <app-todo-input-add-items></app-todo-input-add-items>
 
 <!-- Só aparece o botão se a lista não estiver vazia -->
-<app-todo-button-delete-all *ngIf="taskList.length"></app-todo-button-delete-all>
+<app-todo-button-delete-all *ngIf="taskList.length" (click)="deleteAll()"></app-todo-button-delete-all>
